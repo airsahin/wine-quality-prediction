@@ -1,6 +1,6 @@
 # 🥂 Wine Quality Classifier
 
-A Streamlit web app that predicts the quality of white wines based on their chemical properties — powered by a hybrid machine learning model that combines the strengths of LightGBM and Decision Tree classifiers.
+A Streamlit web app that predicts the quality of white wines based on their chemical properties — powered by a hybrid machine learning model that combines Random Forest and Decision Tree classifiers.
 
 [![Streamlit App](https://img.shields.io/badge/Streamlit-Live_App-brightgreen)](https://wine-quality-prediction-production.up.railway.app/)
 
