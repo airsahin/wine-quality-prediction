@@ -1,0 +1,41 @@
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+
+# Environments and config
+.env
+*.env
+.env.local
+secrets/
+
+# IDE and Git
+.git/
+.gitignore
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Development files
+notebooks/
+tests/
+data/
+*.ipynb
+*.ipynb_checkpoints
+
+# Build/Docker files
+Dockerfile.dev
+docker-compose*
+.dockerignore
+
+# Documentation
+docs/
+*.md
+LICENSE
+
+# Local development
+tmp/
+temp/
