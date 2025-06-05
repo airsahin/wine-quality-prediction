@@ -1,3 +1,4 @@
+import os
 import streamlit as st
 import pandas as pd
 import plotly.express as px
@@ -390,3 +391,7 @@ st.markdown("""
     🍇 Powered by <strong>UCI Wine Dataset</strong> · Hybrid Model: <strong>Random Forest + Decision Tree</strong>
 </div>
 """, unsafe_allow_html=True)
+
+if __name__ == '__main__':
+    port = int(os.environ.get('PORT', 8501))
+    st.run(port=port)
