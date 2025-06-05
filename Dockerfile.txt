@@ -1,44 +1,35 @@
-# Use Python 3.10 
+# Use slim Python base image
 FROM python:3.10.13-slim-bullseye
 
 # Set environment variables
 ENV PYTHONUNBUFFERED=1 \
     PYTHONDONTWRITEBYTECODE=1 \
-    PIP_NO_CACHE_DIR=1
+    PIP_NO_CACHE_DIR=1 \
+    PORT=8501  
 
-# Install system dependencies
+# Install minimal system dependencies
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    build-essential \
     curl \
-    libgomp1 \
     && rm -rf /var/lib/apt/lists/*
 
+# Set working directory
 WORKDIR /app
 
-# Copy requirements first for caching
+# Install Python dependencies
 COPY requirements.txt .
-RUN pip install --upgrade pip==23.1.2 && \
-    pip install --no-cache-dir -r requirements.txt
+RUN pip install --upgrade pip && pip install --no-cache-dir -r requirements.txt
 
-# Copy application (excluded files in .dockerignore)
+# Copy app files
 COPY . .
 
-# Create model directory with correct permissions
-RUN mkdir -p model && \
-    chmod -R 777 model && \
-    chown -R 1000:1000 model  # Better for Railway's user context
-
+# Expose default port 
 EXPOSE 8501
 
-# Production health check (now with timeout)
-HEALTHCHECK --interval=30s --timeout=10s --start-period=10s --retries=3 \
-    CMD curl -f http://localhost:8501/_stcore/health || exit 1
+# Health check for Railway 
+HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
+  CMD curl -f http://localhost:${PORT:-8501}/_stcore/health || exit 1
 
-# Optimized Streamlit run command
+# Streamlit run command
 CMD ["streamlit", "run", "app.py", \
-    "--server.port=8501", \
     "--server.address=0.0.0.0", \
-    "--server.headless=true", \
-    "--server.enableCORS=false", \
-    "--server.enableXsrfProtection=false", \
-    "--browser.gatherUsageStats=false"]
+    "--server.headless=true"]
