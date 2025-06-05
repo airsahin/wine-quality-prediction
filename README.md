@@ -10,7 +10,7 @@ A Streamlit web app that predicts the quality of white wines based on their chem
 
 This project is built on the **White Wine Quality Dataset** from the UCI Machine Learning Repository. It includes physicochemical data for white wines, each labeled with a quality score from 3 to 9 (converted here to **Low**, **Medium**, or **High** quality classes for interpretability).
 
-The goal is to build an interpretable and reliable model that can help winemakers, enthusiasts, or producers estimate wine quality from lab measurements.
+The goal is to build a reliable model that can help producers to estimate wine quality from lab measurements.
 
 ---
 
@@ -20,7 +20,7 @@ A **hybrid classification strategy** was implemented:
 
 - 🟢 **Random Forest** is used as the main model for its high performance in predicting the dominant "Medium" class.
 - 🟠 **Decision Tree** steps in when RF is not confident or when detecting minority classes ("Low" or "High") is more important.
-- This hybrid system increases the accuracy for underrepresented classes without sacrificing overall performance.
+- This increases the accuracy for underrepresented classes without sacrificing overall performance.
 
 Class imbalance is handled with **SMOTE**, and features were selected based on statistical tests and model performance.
 
