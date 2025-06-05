@@ -1,9 +1,17 @@
+import os
+import socket
 import streamlit as st
 import pandas as pd
 import plotly.express as px
 
 from utils.predict import predict_wine_quality_hybrid
 from utils.data import load_example_wines
+
+# Force IPv4 for Railway's networking
+socket.getaddrinfo = lambda *args: [(socket.AF_INET, socket.SOCK_STREAM, 6, '', (args[0], args[1]))]
+
+# Get port from environment (for Railway)
+port = int(os.environ.get("PORT", 8501))
 
 
 # ---- Page Configuration ----
