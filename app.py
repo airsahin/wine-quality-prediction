@@ -265,7 +265,7 @@ with st.expander("ℹ️ About this app"):
     st.markdown('''
     - This tool uses a **hybrid model**: Random Forest for medium-quality detection and Decision Tree for identifying low/high quality wines.
     - Input chemical measurements and get **instant predictions with quality breakdowns**.
-    - [🔗 View source on GitHub](https://github.com/your-username/wine-quality-predictor)
+    - [🔗 View source on GitHub](https://github.com/airsahin/wine-quality-prediction)
     ''')
 
 
