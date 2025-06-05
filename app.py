@@ -375,7 +375,8 @@ if st.button('Analyze Wine Quality', use_container_width=True):
                 padding: 1rem;
                 margin: 0.5rem 0;
                 border-radius: 0.25rem;
-                background: #0E1117;
+                background: #0E1117,
+                color: white;
             ">
                 <strong>{factor}</strong><br>
                 {message}
