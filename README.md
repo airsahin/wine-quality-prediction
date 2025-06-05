@@ -8,7 +8,7 @@ A Streamlit web app that predicts the quality of white wines based on their chem
 
 ## 📊 About the Project
 
-This project is built on the **White Wine Quality Dataset** from the UCI Machine Learning Repository. It includes physicochemical data (like acidity, alcohol, and sulfur dioxide levels) for thousands of white wines, each labeled with a sensory quality score from 3 to 9 (converted here to **Low**, **Medium**, or **High** quality classes for interpretability).
+This project is built on the **White Wine Quality Dataset** from the UCI Machine Learning Repository. It includes physicochemical data for white wines, each labeled with a quality score from 3 to 9 (converted here to **Low**, **Medium**, or **High** quality classes for interpretability).
 
 The goal is to build an interpretable and reliable model that can help winemakers, enthusiasts, or producers estimate wine quality from lab measurements.
 
