@@ -10,7 +10,7 @@ dt_model = joblib.load(os.path.join(PARENT_DIR, 'model', 'wine_quality_dt_model.
 rf_model = joblib.load(os.path.join(PARENT_DIR, 'model', 'wine_quality_rf_model.pkl'))
 
 
-def predict_wine_quality_hybrid(input_data, rf_conf_thresh=0.8, dt_conf_thresh_minor=0.4):
+def predict_wine_quality_hybrid(input_data, rf_conf_thresh=0.6, dt_conf_thresh_minor=0.4):
     feature_order = ['Alc', 'Cl', 'TSO2', 'VA', 'FSO2', 'FA']
 
     input_df = pd.DataFrame([input_data])
