@@ -22,7 +22,6 @@ secrets/
 # Development files
 notebooks/
 tests/
-data/
 *.ipynb
 *.ipynb_checkpoints
 
