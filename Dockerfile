@@ -21,4 +21,4 @@ HEALTHCHECK --interval=30s --timeout=5s \
     CMD curl -f http://localhost:$PORT/_stcore/health || exit 1
 
 # Use exec form with shell expansion
-CMD exec sh -c "streamlit run app.py --server.port=\$PORT --server.address=0.0.0.0 --server.headless=true"
+CMD streamlit run app.py --server.port=${PORT:-8501} --server.address=0.0.0.0 --server.headless=true
